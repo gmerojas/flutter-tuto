@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/AboutScreen.dart';
 import 'package:my_app/BottomNav.dart';
+import 'package:my_app/ContactScreen.dart';
 import 'package:my_app/TabBarExample.dart';
 
 void main() {
@@ -12,15 +14,22 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       //title: 'Flutter Demo',
       /*theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),*/
+      debugShowCheckedModeBanner: false,
       //home: const HomeScreen(),
       //home: Bottomnav(),
       home: TabBarExample(),
+      routes: {
+        '/home': (context) => const HomeScreen(),
+        '/about': (context) => const AboutScreen(),
+        '/contact': (context) => const ContactScreen(),
+        '/bottomnav': (context) => const Bottomnav(),
+      },
     );
   }
 }

@@ -11,6 +11,7 @@ class TabBarExample extends StatefulWidget {
 }
 
 class _tabBarState extends State {
+  var selectedItem = '';
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -28,7 +29,24 @@ class _tabBarState extends State {
                 ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Notificaciones")));
               },
             ),
-            IconButton(onPressed: () => {}, icon: const Icon(Icons.more_vert))
+            IconButton(onPressed: () => {}, icon: const Icon(Icons.call)),
+            PopupMenuButton(
+            onSelected: (value) {
+              setState(() {
+                selectedItem = value.toString();
+              });
+              print(value);
+              Navigator.pushNamed(context, value.toString());
+            },
+            itemBuilder: (BuildContext bc) {
+              return const [
+                PopupMenuItem(value: '/home',child: Text("Home"),),
+                PopupMenuItem(value: '/about',child: Text("About"),),
+                PopupMenuItem(value: '/contact',child: Text("Contact"),),
+                PopupMenuItem(value: '/bottomnav',child: Text("Bottom Nav"),),
+              ];
+            }
+          )
           ],
           bottom: const TabBar(
             tabs: [
