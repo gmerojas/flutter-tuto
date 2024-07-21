@@ -11,32 +11,105 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
+      //title: 'Flutter Demo',
+      /*theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      ),*/
+      home: const HomeScreen(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Flutter App"),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.notifications),
+            tooltip: "Mostrar snackbar",
+            onPressed: (){
+              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Notificaciones")));
+            },
+          ),
+          IconButton(onPressed: () => {}, icon: const Icon(Icons.more_vert))
+        ],
+        backgroundColor: Colors.amber,
+        leading: IconButton(
+          onPressed: (){},
+          icon: IconButton(
+            icon: const Icon(Icons.menu),
+            onPressed: (){},
+          ),
+        ),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            const UserAccountsDrawerHeader(
+              accountName: Text("AppMaking.co"), 
+              accountEmail: Text("sundar@gmail.com"),
+              currentAccountPicture: CircleAvatar(
+                backgroundImage: NetworkImage("https://img.freepik.com/psd-gratis/ilustracion-3d-avatar-o-perfil-humano_23-2150671122.jpg?size=626&ext=jpg"),
+              ),
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: NetworkImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXRQcRh2NyQi12rkxOjpsVDWVMWqsqVvhesQ&s"),
+                  fit: BoxFit.fill,
+                )
+              ),
+              otherAccountsPictures: [
+                CircleAvatar(
+                  backgroundColor: Colors.white,
+                  backgroundImage: NetworkImage("https://img.freepik.com/psd-gratis/3d-ilustracion-persona-gafas-sol_23-2149436188.jpg"),
+                ),
+                CircleAvatar(
+                  backgroundColor: Colors.white,
+                  backgroundImage: NetworkImage("https://static.vecteezy.com/system/resources/thumbnails/002/002/403/small/man-with-beard-avatar-character-isolated-icon-free-vector.jpg"),
+                ),
+              ],
+            ),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text("Home"),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: Icon(Icons.account_box),
+              title: Text("About"),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: Icon(Icons.grid_3x3_outlined),
+              title: Text("Products"),
+              onTap: () => {},
+            ),
+            ListTile(
+              leading: Icon(Icons.contact_mail),
+              title: Text("Contact"),
+              onTap: () => {},
+            ),
+          ],
+        ),
+      ),
+      body: const Center(
+        child: Text(
+          'Body',
+          style: TextStyle(fontSize: 24),
+        ),
+      )
+    );
+  }
+
+}
+
+/* class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
 
   // This widget is the home page of your application. It is stateful, meaning
@@ -122,4 +195,4 @@ class _MyHomePageState extends State<MyHomePage> {
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
-}
+} */
