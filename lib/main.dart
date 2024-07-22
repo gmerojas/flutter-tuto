@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       home: TabBarExample(),
       routes: {
         '/home': (context) => const HomeScreen(),
-        '/about': (context) => const AboutScreen(),
+        '/list': (context) => const AboutScreen(),
         '/contact': (context) => const ContactScreen(),
         '/bottomnav': (context) => const Bottomnav(),
       },

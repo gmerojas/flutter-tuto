@@ -41,7 +41,7 @@ class _tabBarState extends State {
             itemBuilder: (BuildContext bc) {
               return const [
                 PopupMenuItem(value: '/home',child: Text("Home"),),
-                PopupMenuItem(value: '/about',child: Text("About"),),
+                PopupMenuItem(value: '/list',child: Text("Listas"),),
                 PopupMenuItem(value: '/contact',child: Text("Contact"),),
                 PopupMenuItem(value: '/bottomnav',child: Text("Bottom Nav"),),
               ];
