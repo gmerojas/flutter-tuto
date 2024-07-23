@@ -42,6 +42,7 @@ class _tabBarState extends State {
               return const [
                 PopupMenuItem(value: '/home',child: Text("Home"),),
                 PopupMenuItem(value: '/list',child: Text("Listas"),),
+                PopupMenuItem(value: '/users',child: Text("Users API"),),
                 PopupMenuItem(value: '/contact',child: Text("Contact"),),
                 PopupMenuItem(value: '/bottomnav',child: Text("Bottom Nav"),),
               ];

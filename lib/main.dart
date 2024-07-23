@@ -3,6 +3,7 @@ import 'package:my_app/AboutScreen.dart';
 import 'package:my_app/BottomNav.dart';
 import 'package:my_app/ContactScreen.dart';
 import 'package:my_app/TabBarExample.dart';
+import 'package:my_app/pages/UserScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/home': (context) => const HomeScreen(),
         '/list': (context) => const AboutScreen(),
+        '/users': (context) => const UserScreen(),
         '/contact': (context) => const ContactScreen(),
         '/bottomnav': (context) => const Bottomnav(),
       },
